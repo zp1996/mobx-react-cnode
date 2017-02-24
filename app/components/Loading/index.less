@@ -1,0 +1,73 @@
+@charset 'utf-8';
+
+@import '../styles/mixins.less';
+
+.delay(@f, @s, @t, @fo) {
+    .circle1 {
+        animation-delay: @f;
+    }
+    .circle2 {
+        animation-delay: @s;
+    }
+    .circle3 {
+        animation-delay: @t;
+    }
+    .circle4 {
+        animation-delay: @fo;
+    }
+}
+.loading {
+    position: relative;
+}
+.spinner{
+    .size(70px, 70px);
+    margin: auto;
+}
+.container1 > div, .container2 > div, .container3 > div{
+    .size(16px, 16px);
+    background-color: #2fded6;
+    border-radius: 100%;
+    position: absolute;
+    animation: bouncedelay 1.2s infinite ease-in-out;
+    animation-fill-mode: both;
+}
+.spinner-container{
+    position: absolute;
+    .size(75px, 75px);
+}
+.container1 {
+    .delay(0s, -0.9s, -0.6s, -0.3s);
+}
+.container2 {
+    transform: rotateZ(45deg);
+    .delay(-1.1s, -0.8s, -0.5s, -0.2s);
+}
+
+.container3 {
+    transform: rotateZ(90deg);
+    .delay(-1.0s, -0.7s, -0.4s, -0.1s);
+}
+
+.circle1 { 
+    top: 0; 
+    left: 0; 
+}
+.circle2 { 
+    top: 0; 
+    right: 0; 
+}
+.circle3 { 
+    right: 0; 
+    bottom: 0; 
+}
+.circle4 { 
+    left: 0; 
+    bottom: 0; 
+}
+@keyframes bouncedelay {
+    0%, 80%, 100% { 
+        transform: scale(0.0);
+    } 40% { 
+        transform: scale(1.0);
+    }
+}

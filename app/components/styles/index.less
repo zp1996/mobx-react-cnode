@@ -1,0 +1,42 @@
+@charset 'utf-8';
+
+@import './reset.less';
+@import './mixins.less';
+@import './index-container.less';
+
+body {
+    background: @body-bg;
+}
+.main-container {
+    .container-width;
+    width: 100%;
+    margin: 15px auto;
+}
+.main-content {
+    margin-right: 305px;
+    background: #fff; 
+    border-radius: 3px 3px 0 0;
+}
+.tranistion-wrapper {
+    position: relative;
+    .container-width;
+    margin: auto;
+}
+.router-container {
+    position: absolute;
+    width: 100%;
+}
+.route-enter {
+    opacity: 0;
+}
+.route-enter.route-enter-active {
+    opacity: 1;
+    transition: all 300ms ease-in;
+}
+.route-leave {
+    opacity: 1;
+}
+.route-leave.route-leave-active {
+    opacity: 0;
+    transition: all 300ms ease-in;
+}

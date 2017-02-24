@@ -1,0 +1,38 @@
+@charset 'utf-8';
+
+@import '../styles/var.less';
+
+.page-link-to {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    color: #778087;
+}
+@bb: 5px;
+.first-page  {
+    border-top-left-radius: @bb;
+    border-bottom-left-radius: @bb;
+}
+.end-page {
+    border-top-right-radius: @bb;
+    border-bottom-right-radius: @bb;
+}
+.page-area {
+    padding: 10px 20px;
+    li {
+        display: inline-block;
+    }
+    a, .dot {
+        .page-link-to;
+        &:hover {
+            background: #f5f5f5; 
+        }
+    }
+    .active-page {
+        color: #80bd01;
+        &:hover {
+            background: inherit;
+        }
+    }
+}

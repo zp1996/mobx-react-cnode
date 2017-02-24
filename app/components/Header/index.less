@@ -1,0 +1,38 @@
+@charset 'utf-8';
+
+@import '../styles/var';
+@import '../styles/mixins';
+
+.web-header {
+    .lh-equal-h(@header-height);
+    background: @header-bg;
+}
+.web-header-container {
+    .container-width;
+    .lh-equal-h(@header-height);
+    margin: auto;
+}
+#logo {
+    @h: 28px;
+    @t: 3px;
+    padding: @t 20px;
+    .size(120px, @h);
+    display: inline-block;
+    margin-top: @t;
+    img {
+        .size(100%, auto);
+    }
+}
+.web-header-nav {
+    float: right;
+    li {
+        float: left;
+        a {
+            padding: 10px 15px;
+            color: @header-nav-color;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
