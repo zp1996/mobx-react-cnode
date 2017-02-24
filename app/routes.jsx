@@ -5,6 +5,7 @@ import Index from 'Containers/index';
 import API from 'Containers/API';
 import GetStart from 'Containers/GetStart';
 import About from 'Containers/About';
+import Topic from 'Containers/Topic';
 
 const Container = ({children, location}) => (
     <ReactCSSTransitionGroup
@@ -29,6 +30,7 @@ export default () => (
             <Route path="api" component={API} />
             <Route path="getstart" component={GetStart} />
             <Route path="about" component={About} />
+            <Route path="topic/:id" component={Topic} />
         </Route>
     </Router>
 );

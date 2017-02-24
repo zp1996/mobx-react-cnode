@@ -26,11 +26,13 @@ const getContainers = () => {
 }
 
 const Loading = () => (
-    <div className="loading">
-        <div className="spinner">
-            {
-                getContainers()
-            }
+    <div className="maskj-conatiner">
+        <div className="loading">
+            <div className="spinner">
+                {
+                    getContainers()
+                }
+            </div>
         </div>
     </div>
 );

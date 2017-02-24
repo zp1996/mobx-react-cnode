@@ -1,13 +1,10 @@
 const express = require('express'),
     router = express.Router(),
-    { AsyncGet } = require('./utils'),
+    { getData } = require('./utils'),
     { baseUrl } = require('./config');
 
-router.get('/topics', (req, res) => {
-    AsyncGet(`${baseUrl}${req.originalUrl}&limit=40`)
-        .then(data => {
-            res.status(200).json(data)
-        })
-});
+router.get('/topics', getData('&limit=40'));
+
+router.get('/topic/:id', getData());
 
 module.exports = router;

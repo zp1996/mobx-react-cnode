@@ -36,9 +36,9 @@ const TopicList = ({list}) => (
                                 {getTab(tab, top, good)}
                             </span> : null
                         }
-                        <a href={`/topic/${id}`} className="topic-title">
+                        <Link to={`/topic/${id}`} className="topic-title">
                             {title}
-                        </a>
+                        </Link>
                     </li>
                 )
             })
@@ -121,15 +121,12 @@ class Index extends Component {
         );
     }
     render() {
-        const { loading, list, tab, page } = this.state,
-            classes = classnames({
-                'mask-container': loading
-            });
+        const { loading, list, tab, page } = this.state;
         return (
             <div className="main-content">
                 {
                     loading ? (
-                        <div className={classes}>
+                        <div className="mask-container">
                             <Loading />
                         </div>) : (
                             <div className="conatiner">

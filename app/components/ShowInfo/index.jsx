@@ -1,13 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Loading from 'Components/Loading';
+import MarkDown from 'Components/MarkDown';
 import styles from './index.less';
 
-const MarkDown = ({text}) => (
-    <div className="markdown-area" dangerouslySetInnerHTML={{
-        __html: text
-    }}></div>
-);
 
 class ShowInfo extends Component {
     static propTypes = {
@@ -33,10 +29,7 @@ class ShowInfo extends Component {
     }
     render() {
         const { loading } = this.state,
-            { dataKey, store, name } = this.props,
-            classes = classnames({
-                'mask-container': loading
-            });
+            { dataKey, store, name } = this.props;
         return (
             <div className="main-content">
                 <div className="main-content-header">
@@ -46,12 +39,10 @@ class ShowInfo extends Component {
                         <span className="active-route">{name}</span>
                     </nav>
                 </div>
-                <div className={classes}>
                 {
                     loading ? <Loading /> : 
                         <MarkDown text={store[dataKey].text} />
                 }
-                </div>
             </div>
         );
     }

@@ -1,0 +1,147 @@
+@charset 'utf-8';
+
+@import '../styles/var.less';
+
+.markdown-area {
+    padding: 0px 20px;
+    h1, h2, h3, h4, h5, h6 {
+        margin: 30px 0 15px;
+        border-bottom: 1px solid #eee;
+    }
+    h2 {
+        font-size: 26px;
+        line-height: 60px;
+    }
+    h3 {
+        font-size: 24.5px;
+        line-height: 40px;
+    }
+    h4 {
+        font-size: 17.5px;
+    }
+    p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    a {
+        color: #08c;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    div:nth-of-type(3) {
+        padding-bottom: 20px;
+        a {
+            color: #778087;
+        }
+    }
+}
+.markdown-text {
+    padding-bottom: @base-font-size;
+}
+.markdown-text p, .preview p {
+    word-wrap: break-word;
+    line-height: 2em;
+    margin: 1em 0;
+}
+
+.markdown-text > *:first-child, .preview > *:first-child {
+    margin-top: 0;
+}
+
+.markdown-text > *:last-child, .preview > *:last-child {
+    margin-bottom: 1em;
+}
+.markdown-text ul {
+    margin: 0 0 10px 25px;
+    list-style-type: disc;
+}
+.markdown-text li, .preview li {
+    font-size: 14px;
+    line-height: 2em;
+}
+.markdown-text p code, .preview p code,
+.markdown-text li code, .preview li code {
+    color: black;
+    background-color: #fcfafa;
+    padding: 4px 6px;
+}
+
+
+.markdown-text img {
+    cursor: pointer;
+}
+
+.panel .markdown-text a {
+    color: #08c;
+}
+
+.preview {
+    padding: 0.5em;
+    font-size: 15px;
+    min-height: 200px;
+    word-break: break-all;
+}
+
+.preview p > img {
+    display: block;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+}
+
+pre {
+    background: #fee9cc;
+    border: 1px dashed #ccc;
+    line-height: 22px;
+}
+code {
+    padding: 0;
+    border: none;
+}
+p code {
+    background: none;
+    color: hsl(0, 0%, 50%);
+    margin: 0 1px;
+    padding: 1px 4px;
+    border-radius: 1px;
+}
+div pre.prettyprint {
+    font-size: 14px;
+    border-radius: 0px;
+    padding: 0 15px;
+    border: none;
+    margin: 20px -10px;
+    border-width: 1px 0px;
+    background: #f7f7f7;
+    -o-tab-size: 4;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+.markdown_editor .markdown_in_preview,
+.markdown_editor .markdown_in_editor {
+    display: none;
+}
+
+.markdown_editor.in_preview .markdown_in_preview {
+    display: block;
+}
+
+.markdown_editor.in_editor .markdown_in_editor {
+    display: block;
+}
+
+textarea#title {
+    width: 98%;
+    border: none;
+    margin-bottom: 1em;
+    resize: none;
+    height: 20px;
+}
+
+.editor_buttons {
+    margin-top: 10px;
+}
+
+.editor_buttons > button {
+    vertical-align: baseline;
+}

@@ -34,7 +34,15 @@ const HandleRequest = (req, res) => {
     }, 2000);
 };
 
+const getData = url => (req, res) => {
+    url = url || '';
+    AsyncGet(baseUrl + req.originalUrl + url).then(data => {
+            res.status(200).json(data)
+        });
+};
+
 module.exports = {
     AsyncGet,
-    HandleRequest
+    HandleRequest,
+    getData
 };
