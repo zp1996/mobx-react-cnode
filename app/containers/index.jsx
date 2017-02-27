@@ -3,15 +3,8 @@ import { Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import Loading from 'Components/Loading';
 import Page from 'Components/Page';
-
-const config = {
-        'all': '全部',
-        'good': '精华',
-        'share': '分享',
-        'ask': '问答',
-        'job': '招聘'
-    },
-    getTab = (tab, top, good) => top ? '置顶' : good ? '精华' : config[tab];
+import TopicTab from 'Components/TopicTab';
+import config from 'Root/config';
 
 const TopicList = ({list}) => (
     <ul className="topic-list">
@@ -31,11 +24,7 @@ const TopicList = ({list}) => (
                             /
                             <span className="visit-count">{visit_count}</span>
                         </span>
-                        {
-                            (tab || good) ? <span className={classes}>
-                                {getTab(tab, top, good)}
-                            </span> : null
-                        }
+                        <TopicTab tab={tab} good={good} top={top} />
                         <Link to={`/topic/${id}`} className="topic-title">
                             {title}
                         </Link>

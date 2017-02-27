@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "prod": "webpack --config ./webpack/client/webpack.prod.js",
+    "dev": "webpack-dev-server --config ./webpack/client/webpack.dev.js --open",
+    "server": "webpack --config ./webpack/server/webpack.server.js && rm -rf bundle.css && node ssr.js"
   },
   "author": "zp1996",
   "license": "ISC",

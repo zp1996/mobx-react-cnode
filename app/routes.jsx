@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Router, browserHistory, IndexRoute  } from 'react-router';
+import { Route, IndexRoute  } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Index from 'Containers/index';
 import API from 'Containers/API';
@@ -23,14 +23,12 @@ const Container = ({children, location}) => (
     </ReactCSSTransitionGroup>
 );
 
-export default () => (
-    <Router history={browserHistory}>
-        <Route path="/(?)" component={Container}>
-            <IndexRoute component={Index} />
-            <Route path="api" component={API} />
-            <Route path="getstart" component={GetStart} />
-            <Route path="about" component={About} />
-            <Route path="topic/:id" component={Topic} />
-        </Route>
-    </Router>
+export default (
+    <Route path="/(?)" component={Container}>
+        <IndexRoute component={Index} />
+        <Route path="api" component={API} />
+        <Route path="getstart" component={GetStart} />
+        <Route path="about" component={About} />
+        <Route path="topic/:id" component={Topic} />
+    </Route>
 );

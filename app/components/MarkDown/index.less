@@ -3,21 +3,30 @@
 @import '../styles/var.less';
 
 .markdown-area {
+    @markdown-border: 1px solid #eee;
     padding: 0px 20px;
     h1, h2, h3, h4, h5, h6 {
         margin: 30px 0 15px;
-        border-bottom: 1px solid #eee;
+        border-bottom: @markdown-border;
+    }
+    h1, h2, h3  {
+        line-height: 40px;
+    }
+    h1 {
+        font-size: 32.5px;
     }
     h2 {
         font-size: 26px;
-        line-height: 60px;
     }
     h3 {
         font-size: 24.5px;
-        line-height: 40px;
     }
     h4 {
         font-size: 17.5px;
+    }
+    hr {
+        border-bottom: @markdown-border;
+        border-bottom: 1px solid #fff;
     }
     p {
         font-size: 15px;
@@ -38,9 +47,13 @@
 }
 .markdown-text {
     padding-bottom: @base-font-size;
+    img {
+        display: block;
+    }
 }
 .markdown-text p, .preview p {
     word-wrap: break-word;
+    white-space: pre-wrap;
     line-height: 2em;
     margin: 1em 0;
 }

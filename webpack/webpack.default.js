@@ -4,17 +4,14 @@ const path = require('path'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
     port = 9000,
-    rootPath = path.join(__dirname, '/'),
+    rootPath = path.join(__dirname, '../'),
     outputPath = path.join(rootPath, 'dist');
 
 module.exports = {
+    port,
+    rootPath,
+    outputPath, 
     entry: {
-        app: [ 
-            'react-hot-loader/patch',
-            `webpack-dev-server/client?http://localhost:${port}`,
-            'webpack/hot/only-dev-server',
-            `${rootPath}app/index.jsx`
-        ],
         vendor: [            
             'react',
             'react-dom',
@@ -24,12 +21,7 @@ module.exports = {
             "classnames"
         ]
     },
-    output: {
-        filename: '[name].js',
-        path: outputPath,
-        publicPath: '/'
-    },
-    module: {
+    modules: {
         rules: [
             {
                 test: /\.less$/,
@@ -48,10 +40,11 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            Components: path.resolve(__dirname, 'app/components/'),
-            Containers: path.resolve(__dirname, 'app/containers/'),
-            Styles: path.resolve(__dirname, 'app/components/styles/'),
-            Stores: path.resolve(__dirname, 'app/stores/')
+            Root: path.resolve(rootPath, 'app/'),
+            Components: path.resolve(rootPath, 'app/components/'),
+            Containers: path.resolve(rootPath, 'app/containers/'),
+            Styles: path.resolve(rootPath, 'app/components/styles/'),
+            Stores: path.resolve(rootPath, 'app/stores/')
         }
     },
     devtool: 'source-map',
@@ -65,13 +58,11 @@ module.exports = {
                 dry: false
             }
         ),
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [require('autoprefixer')]
             }
         }),
-        new ExtractTextPlugin('bundle.css'),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest']
         }),
@@ -79,20 +70,5 @@ module.exports = {
         new HtmlWebpackPlugin({ 
             template: `${rootPath}/app/index.html`
         })
-    ],
-    devServer: {
-        contentBase: outputPath,
-        compress: true,
-        historyApiFallback: true,
-        hot: true,
-        port,
-        proxy: {
-            '/server': {
-                target: 'http://localhost:2017',
-                pathRewrite: {
-                    "^/server": ""
-                }
-            }
-        }
-    }
+    ]
 };

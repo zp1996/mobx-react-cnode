@@ -1,0 +1,28 @@
+@charset 'utf-8';
+
+@import './var.less';
+
+.topic-content-conatiner {
+    background: @footer-bg;
+}
+.topic-header {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.topic-header-title {
+    font-size: 22px;
+    line-height: 130%;
+    display: block;
+    margin: 8px 0px;
+    font-weight: bold;
+}
+.topic-header-info {
+    span {
+        font-size: @msm-font-size;
+        color: #838383;
+        &:before {
+            content: '• '; 
+        }
+    }
+}

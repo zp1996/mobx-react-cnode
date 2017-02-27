@@ -6,7 +6,9 @@ function BaseFetch(url, cb) {
         .then(data => cb(data));
 }
 const getData = key => {
-    const data = localStorage.getItem(`mobx-cnode-${key}`);
+
+    const data = typeof localStorage === 'undefined' ? null : 
+        localStorage.getItem(`mobx-cnode-${key}`);
     return data && JSON.parse(data);
 };
 const getPath = () => {
@@ -14,7 +16,10 @@ const getPath = () => {
     return pathname === '/' ? 'all' : pathname;
 }
 class Store {
-    static fetchData = key => {
+    constructor() {
+        console.log('init');
+    }
+    static fetchData(key) {
         return BaseFetch(`/server/${key}`, data => {
             this[key] = data;
             localStorage.setItem(

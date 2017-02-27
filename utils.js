@@ -35,8 +35,9 @@ const HandleRequest = (req, res) => {
 };
 
 const getData = url => (req, res) => {
+    let { _parsedUrl: { path } } = req;
     url = url || '';
-    AsyncGet(baseUrl + req.originalUrl + url).then(data => {
+    AsyncGet(`${baseUrl}/api/v1${path}${url}`).then(data => {
             res.status(200).json(data)
         });
 };
