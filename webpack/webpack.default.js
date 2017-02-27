@@ -49,9 +49,6 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        new webpack.ProvidePlugin({  
-            classnames: 'classnames'
-        }),
         new CleanWebpackPlugin([outputPath], {
                 root: rootPath,
                 verbose: true,

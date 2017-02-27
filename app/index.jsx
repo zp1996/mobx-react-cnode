@@ -8,7 +8,7 @@ import Store from 'Stores';
 
 useStrict(true);
 
-const store = new Store();
+const store = window.store || new Store();
 
 render(
     <Provider store={store}>

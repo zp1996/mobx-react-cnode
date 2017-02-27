@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import config from 'Root/config';
 
 const getTab = (tab, top, good) => top ? '置顶' : good ? '精华' : config[tab],

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
+import classnames from 'classnames';
 import Loading from 'Components/Loading';
 import Page from 'Components/Page';
 import TopicTab from 'Components/TopicTab';
@@ -40,6 +41,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = this.getState(props.store);
+        console.log('render了啊');
     }
     getState(store) {
         const { list } = store;
@@ -54,7 +56,9 @@ class Index extends Component {
         this.state.page = +page || 1;
     }
     componentDidMount() {
-        this.getList();
+        if (this.state.loading) {
+            this.getList();
+        }
     }
     componentWillReceiveProps(nextProps) {
         const { tab, page } = this.state,
@@ -78,6 +82,7 @@ class Index extends Component {
         return res;
     }
     getList() {
+        console.log(true);
         const { store }= this.props,
             { tab, page } = this.state;
         store.fetchList(`tab=${tab}&page=${page}`)

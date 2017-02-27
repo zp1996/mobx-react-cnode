@@ -8,14 +8,17 @@
     "start": "webpack-dev-server --open",
     "prod": "webpack --config ./webpack/client/webpack.prod.js",
     "dev": "webpack-dev-server --config ./webpack/client/webpack.dev.js --open",
-    "server": "webpack --config ./webpack/server/webpack.server.js && rm -rf bundle.css && node ssr.js"
+    "server": "npm run prod && webpack --config ./webpack/server/webpack.server.js && rm -rf bundle.css && node ssr.js"
   },
   "author": "zp1996",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.22.0",
     "classnames": "^2.2.5",
+    "ejs": "^2.5.6",
+    "es6-promise": "^4.0.5",
     "express": "^4.14.1",
+    "isomorphic-fetch": "^2.2.1",
     "mobx": "^3.1.0",
     "mobx-react": "^4.1.0",
     "react": "^15.4.2",

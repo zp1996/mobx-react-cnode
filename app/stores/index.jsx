@@ -1,4 +1,5 @@
 import { observable, computed, action } from 'mobx'; 
+import 'isomorphic-fetch';
 
 function BaseFetch(url, cb) {
     return fetch(url)
@@ -6,7 +7,6 @@ function BaseFetch(url, cb) {
         .then(data => cb(data));
 }
 const getData = key => {
-
     const data = typeof localStorage === 'undefined' ? null : 
         localStorage.getItem(`mobx-cnode-${key}`);
     return data && JSON.parse(data);
@@ -43,7 +43,7 @@ class Store {
         return Store.fetchData.call(this, 'about');
     }
     fetchList(query) {
-        return fetch(`/server/api/v1/topics?${query}`)
+        return fetch(`http://localhost:9000/server/api/v1/topics?${query}`)
             .then(res => res.json())
             .then(data => {
                 data = JSON.parse(data);

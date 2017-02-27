@@ -38,12 +38,6 @@ module.exports = {
                 postcss: [require('autoprefixer')]
             }
         }),
-        new ExtractTextPlugin('bundle.css'),
-        new HtmlWebpackPlugin({ 
-            template: `${rootPath}/app/index.ejs`,
-            filename: `${rootPath}/index.ejs`,
-            dom: '<%- html %>',
-            title: '<%= title %>'
-        })
+        new ExtractTextPlugin('bundle.css')
     ]
 };

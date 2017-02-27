@@ -1,6 +1,5 @@
 const express = require('express'),
     { AsyncGet, HandleRequest } = require('./utils'),
-    api = require('./api'),
     app = new express(),
     router = express.Router(),
     { port } = require('./config'),
