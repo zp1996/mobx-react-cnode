@@ -41,7 +41,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = this.getState(props.store);
-        console.log('render了啊');
+        this.client = props.store.req;
     }
     getState(store) {
         const { list } = store;
@@ -56,9 +56,9 @@ class Index extends Component {
         this.state.page = +page || 1;
     }
     componentDidMount() {
-        if (this.state.loading) {
-            this.getList();
-        }
+        // 防止第一次的多余请求
+        !this.client && this.getList();
+        this.props.store.req = false;
     }
     componentWillReceiveProps(nextProps) {
         const { tab, page } = this.state,
@@ -82,7 +82,6 @@ class Index extends Component {
         return res;
     }
     getList() {
-        console.log(true);
         const { store }= this.props,
             { tab, page } = this.state;
         store.fetchList(`tab=${tab}&page=${page}`)

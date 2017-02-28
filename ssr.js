@@ -664,8 +664,6 @@ var Store = (_class = function () {
         _initDefineProp(this, 'list', _descriptor4, this);
 
         _initDefineProp(this, 'topic', _descriptor5, this);
-
-        console.log('init');
     }
 
     _createClass(Store, [{
@@ -1136,6 +1134,7 @@ var Topic = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mobx_react
             topic: props.store.topic,
             id: props.params.id
         };
+        console.log(props.store);
         return _this;
     }
 
@@ -1317,7 +1316,7 @@ var Index = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mobx_react
         var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
         _this.state = _this.getState(props.store);
-        console.log('render了啊');
+        _this.client = props.store.req;
         return _this;
     }
 
@@ -1344,9 +1343,9 @@ var Index = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mobx_react
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            if (this.state.loading) {
-                this.getList();
-            }
+            // 防止第一次的多余请求
+            !this.client && this.getList();
+            this.props.store.req = false;
         }
     }, {
         key: 'componentWillReceiveProps',
@@ -1383,7 +1382,6 @@ var Index = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mobx_react
         value: function getList() {
             var _this3 = this;
 
-            console.log(true);
             var store = this.props.store,
                 _state2 = this.state,
                 tab = _state2.tab,
@@ -1596,7 +1594,7 @@ app.use(function (req, res, next) {
                 res.render('index.ejs', {
                     html: html,
                     title: 'text',
-                    store: true
+                    store: JSON.stringify(store)
                 });
             });
         } else {

@@ -16,9 +16,6 @@ const getPath = () => {
     return pathname === '/' ? 'all' : pathname;
 }
 class Store {
-    constructor() {
-        console.log('init');
-    }
     static fetchData(key) {
         return BaseFetch(`/server/${key}`, data => {
             this[key] = data;

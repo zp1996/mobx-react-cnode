@@ -15,6 +15,7 @@ class Topic extends Component {
             topic: props.store.topic,
             id: props.params.id
         };
+        console.log(props.store);
     }
     componentDidMount() {
         const { store } = this.props;

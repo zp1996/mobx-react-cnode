@@ -28,6 +28,7 @@ app.use((req, res, next) => {
             res.redirect(redirect.pathname + redirect.search);
         } else if (props) {
             const store = new Store();
+            console.log(req.url);
             getStore[req.url](store).then(() => {
                     const html = renderToString(
                         <Provider store={store}>
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
                     res.render('index.ejs', {
                         html, 
                         title: 'text',
-                        store: true
+                        store: JSON.stringify(store)
                     });
                 });
         } else {

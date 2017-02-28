@@ -43,7 +43,7 @@ module.exports = {
             filename: `${rootPath}/index.ejs`,
             dom: '<%- html %>',
             title: '<%= title %>',
-            store: '<%= store %>'
+            store: '<%- store %>'
         }),
         ...plugins
     ]

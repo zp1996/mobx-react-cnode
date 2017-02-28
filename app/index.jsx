@@ -8,7 +8,21 @@ import Store from 'Stores';
 
 useStrict(true);
 
-const store = window.store || new Store();
+// 服务端渲染之后再来挂载方法
+function clientInit(server, client) {
+    [
+        "api", "getstart", "about", "fetchAPI",
+        "fetchGETSTART", "fetchList", "fetchABOUT",
+        "fetchTopic"
+    ].forEach(val => {
+       	server[val] = server[val] || client[val];
+    });
+}
+
+const clientStore = new Store();
+const store = window.__store__ || clientStore;
+store.req = Boolean(window.__store__);
+store.req && clientInit(store, clientStore);
 
 render(
     <Provider store={store}>
