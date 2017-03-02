@@ -89,6 +89,38 @@ module.exports = require("react-router");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return config; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return prefix; });
+var config = {
+    all: '全部',
+    good: '精华',
+    share: '分享',
+    ask: '问答',
+    job: '招聘'
+};
+
+var prefix =  true ? 'http://localhost:9000' : '';
+
+
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(config, 'config', '/Users/apple/zp/mobx-react-cnode/app/config.js');
+
+    __REACT_HOT_LOADER__.register(prefix, 'prefix', '/Users/apple/zp/mobx-react-cnode/app/config.js');
+}();
+
+;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index_less__ = __webpack_require__(24);
@@ -153,7 +185,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -161,7 +193,7 @@ var _temp = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_Loading__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_Loading__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_Components_MarkDown__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__index_less__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__index_less__);
@@ -273,35 +305,6 @@ var _temp2 = function () {
 ;
 
 /***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var config = {
-    'all': '全部',
-    'good': '精华',
-    'share': '分享',
-    'ask': '问答',
-    'job': '招聘'
-};
-
-var _default = config;
-/* harmony default export */ __webpack_exports__["a"] = _default;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(config, 'config', '/Users/apple/zp/mobx-react-cnode/app/config.js');
-
-    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/apple/zp/mobx-react-cnode/app/config.js');
-}();
-
-;
-
-/***/ }),
 /* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -345,13 +348,13 @@ var _temp = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_classnames__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Root_config__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Root_config__ = __webpack_require__(3);
 
 
 
 
 var getTab = function getTab(tab, top, good) {
-    return top ? '置顶' : good ? '精华' : __WEBPACK_IMPORTED_MODULE_2_Root_config__["a" /* default */][tab];
+    return top ? '置顶' : good ? '精华' : __WEBPACK_IMPORTED_MODULE_2_Root_config__["b" /* config */][tab];
 },
     getClasses = function getClasses(top, good) {
     return __WEBPACK_IMPORTED_MODULE_1_classnames___default()({
@@ -580,8 +583,9 @@ var _temp = function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mobx__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mobx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mobx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_Root_config__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
@@ -630,6 +634,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 function _initializerWarningHelper(descriptor, context) {
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
+
 
 
 
@@ -686,7 +691,8 @@ var Store = (_class = function () {
         value: function fetchList(query) {
             var _this = this;
 
-            return fetch('http://localhost:9000/server/api/v1/topics?' + query).then(function (res) {
+            query = query ? query + '&limit=40' : '?limit=40';
+            return fetch(__WEBPACK_IMPORTED_MODULE_1_Root_config__["a" /* prefix */] + '/server/api/v1/topics/' + query).then(function (res) {
                 return res.json();
             }).then(function (data) {
                 data = JSON.parse(data);
@@ -698,7 +704,7 @@ var Store = (_class = function () {
         value: function fetchTopic(id) {
             var _this2 = this;
 
-            return BaseFetch('/server/api/v1/topic/' + id, function (data) {
+            return BaseFetch(__WEBPACK_IMPORTED_MODULE_1_Root_config__["a" /* prefix */] + '/server/api/v1/topic/' + id, function (data) {
                 data = JSON.parse(data).data;
                 _this2.topic = data;
             });
@@ -992,7 +998,7 @@ var _temp2 = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mobx_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_ShowInfo__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_ShowInfo__ = __webpack_require__(5);
 
 
 
@@ -1027,7 +1033,7 @@ var _temp = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mobx_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_ShowInfo__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_ShowInfo__ = __webpack_require__(5);
 
 
 
@@ -1062,7 +1068,7 @@ var _temp = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mobx_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_ShowInfo__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_ShowInfo__ = __webpack_require__(5);
 
 
 
@@ -1097,12 +1103,12 @@ var _temp = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_mobx_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_mobx_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_Loading__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Components_Loading__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_Components_MarkDown__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_Components_TopicTab__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_Styles_topic_less__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_Styles_topic_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_Styles_topic_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_Root_config__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_Root_config__ = __webpack_require__(3);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _dec, _class;
@@ -1134,7 +1140,6 @@ var Topic = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mobx_react
             topic: props.store.topic,
             id: props.params.id
         };
-        console.log(props.store);
         return _this;
     }
 
@@ -1146,7 +1151,6 @@ var Topic = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mobx_react
             var store = this.props.store;
 
             store.fetchTopic(this.state.id).then(function () {
-                console.log(store.topic);
                 _this2.setState({
                     loading: false,
                     data: store.topic
@@ -1192,7 +1196,7 @@ var Topic = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_mobx_react
                             'span',
                             null,
                             '\u6765\u81EA ',
-                            __WEBPACK_IMPORTED_MODULE_6_Root_config__["a" /* default */][data.tab],
+                            __WEBPACK_IMPORTED_MODULE_6_Root_config__["b" /* config */][data.tab],
                             ' '
                         )
                     )
@@ -1235,10 +1239,10 @@ var _temp = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mobx_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mobx_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_classnames__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_Components_Loading__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_Components_Loading__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_Components_Page__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_Components_TopicTab__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_Root_config__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_Root_config__ = __webpack_require__(3);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _dec, _class;
@@ -1387,14 +1391,14 @@ var Index = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mobx_react
                 tab = _state2.tab,
                 page = _state2.page;
 
-            store.fetchList('tab=' + tab + '&page=' + page).then(function () {
+            store.fetchList('?tab=' + tab + '&page=' + page).then(function () {
                 _this3.setState(_this3.getState(store));
             });
         }
     }, {
         key: 'getHeader',
         value: function getHeader() {
-            var keys = Object.keys(__WEBPACK_IMPORTED_MODULE_7_Root_config__["a" /* default */]),
+            var keys = Object.keys(__WEBPACK_IMPORTED_MODULE_7_Root_config__["b" /* config */]),
                 tab = this.state.tab;
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1411,7 +1415,7 @@ var Index = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_mobx_react
                             key: key,
                             className: classes
                         },
-                        __WEBPACK_IMPORTED_MODULE_7_Root_config__["a" /* default */][key]
+                        __WEBPACK_IMPORTED_MODULE_7_Root_config__["b" /* config */][key]
                     );
                 })
             );
@@ -1585,7 +1589,17 @@ app.use(function (req, res, next) {
             res.redirect(redirect.pathname + redirect.search);
         } else if (props) {
             var store = new __WEBPACK_IMPORTED_MODULE_8_Stores__["a" /* default */]();
-            getStore[req.url](store).then(function () {
+            var _req$_parsedUrl = req._parsedUrl,
+                pathname = _req$_parsedUrl.pathname,
+                search = _req$_parsedUrl.search,
+                flag = Boolean(getStore[pathname]);
+
+            if (!flag) {
+                var urlData = getUrl(pathname);
+                pathname = urlData.pathname;
+                search = urlData.search;
+            }
+            getStore[pathname](store, search).then(function () {
                 var html = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_dom_server__["renderToString"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_4_mobx_react__["Provider"],
                     { store: store },
@@ -1604,10 +1618,32 @@ app.use(function (req, res, next) {
 });
 
 var getStore = {
-    '/': function _(store) {
-        return store.fetchList('tab=all&page=1');
+    '/': function _(store, search) {
+        search = search || '';
+        return store.fetchList(search);
+    },
+    '/topic': function topic(store, search) {
+        return store.fetchTopic(search);
     }
 };
+var defaultMemoize = function defaultMemoize(fn) {
+    var lastArg = null,
+        lastRes = null;
+    return function (arg) {
+        if (lastArg === null || lastArg !== arg) {
+            lastRes = fn(arg);
+        }
+        lastArg = arg;
+        return lastRes;
+    };
+};
+var getUrl = defaultMemoize(function (url) {
+    var index = url.lastIndexOf('/');
+    return {
+        pathname: url.slice(0, index),
+        search: url.slice(index + 1)
+    };
+});
 
 app.listen(port, function () {
     console.log('server is on ' + port);
@@ -1624,6 +1660,10 @@ var _temp = function () {
     __REACT_HOT_LOADER__.register(port, 'port', '/Users/apple/zp/mobx-react-cnode/app.js');
 
     __REACT_HOT_LOADER__.register(getStore, 'getStore', '/Users/apple/zp/mobx-react-cnode/app.js');
+
+    __REACT_HOT_LOADER__.register(defaultMemoize, 'defaultMemoize', '/Users/apple/zp/mobx-react-cnode/app.js');
+
+    __REACT_HOT_LOADER__.register(getUrl, 'getUrl', '/Users/apple/zp/mobx-react-cnode/app.js');
 }();
 
 ;

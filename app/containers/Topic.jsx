@@ -4,7 +4,7 @@ import Loading from 'Components/Loading';
 import MarkDown from 'Components/MarkDown';
 import TopicTab from 'Components/TopicTab';
 import styles from 'Styles/topic.less';
-import config from 'Root/config';
+import { config } from 'Root/config';
 
 @inject('store') @observer
 class Topic extends Component {
@@ -15,13 +15,11 @@ class Topic extends Component {
             topic: props.store.topic,
             id: props.params.id
         };
-        console.log(props.store);
     }
     componentDidMount() {
         const { store } = this.props;
         store.fetchTopic(this.state.id)
             .then(() => {
-                console.log(store.topic);
                 this.setState({
                     loading: false,
                     data: store.topic

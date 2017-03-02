@@ -1,4 +1,5 @@
-import { observable, computed, action } from 'mobx'; 
+import { observable, computed, action } from 'mobx';
+import { prefix } from 'Root/config'; 
 import 'isomorphic-fetch';
 
 function BaseFetch(url, cb) {
@@ -40,7 +41,8 @@ class Store {
         return Store.fetchData.call(this, 'about');
     }
     fetchList(query) {
-        return fetch(`http://localhost:9000/server/api/v1/topics?${query}`)
+        query = query ? `${query}&limit=40` : '?limit=40';
+        return fetch(`${prefix}/server/api/v1/topics/${query}`)
             .then(res => res.json())
             .then(data => {
                 data = JSON.parse(data);
@@ -48,7 +50,7 @@ class Store {
             });
     }
     fetchTopic(id) {
-        return BaseFetch(`/server/api/v1/topic/${id}`, data => {
+        return BaseFetch(`${prefix}/server/api/v1/topic/${id}`, data => {
             data = JSON.parse(data).data;
             this.topic = data;
         });

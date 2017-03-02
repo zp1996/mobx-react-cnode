@@ -28,8 +28,14 @@ app.use((req, res, next) => {
             res.redirect(redirect.pathname + redirect.search);
         } else if (props) {
             const store = new Store();
-            console.log(req.url);
-            getStore[req.url](store).then(() => {
+            let { _parsedUrl: { pathname, search } } = req,
+                flag = Boolean(getStore[pathname]);
+            if (!flag) {
+                let urlData = getUrl(pathname);
+                pathname = urlData.pathname;
+                search = urlData.search;
+            }
+            getStore[pathname](store, search).then(() => {
                     const html = renderToString(
                         <Provider store={store}>
                             <RouterContext {...props} />
@@ -48,10 +54,35 @@ app.use((req, res, next) => {
 });
 
 const getStore = {
-    '/': (store) => {
-        return store.fetchList('tab=all&page=1');
+    '/': (store, search) => {
+        search = search || '';
+        return store.fetchList(search);
+    },
+    '/topic': (store, search) => {
+        return store.fetchTopic(search);
     }
 };
+const defaultMemoize = fn => {
+    let lastArg = null,
+        lastRes = null;
+    return arg => {
+        if (
+            lastArg === null ||
+            lastArg !== arg
+        ) {
+            lastRes = fn(arg);
+        }
+        lastArg = arg;
+        return lastRes;
+    };
+};
+const getUrl = defaultMemoize(url => {
+    const index = url.lastIndexOf('/');
+    return {
+        pathname: url.slice(0, index),
+        search: url.slice(index + 1)
+    };
+});
 
 app.listen(port, () => {
     console.log(`server is on ${port}`);

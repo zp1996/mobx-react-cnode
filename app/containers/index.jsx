@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Loading from 'Components/Loading';
 import Page from 'Components/Page';
 import TopicTab from 'Components/TopicTab';
-import config from 'Root/config';
+import { config } from 'Root/config';
 
 const TopicList = ({list}) => (
     <ul className="topic-list">
@@ -84,7 +84,7 @@ class Index extends Component {
     getList() {
         const { store }= this.props,
             { tab, page } = this.state;
-        store.fetchList(`tab=${tab}&page=${page}`)
+        store.fetchList(`?tab=${tab}&page=${page}`)
             .then(() => {
                 this.setState(
                     this.getState(store)
